@@ -1,0 +1,41 @@
+<div class = "container">
+		<div>
+				<button class="newInstance" >
+						<LinkTo @route="app.index">
+								EXIT 
+						</LinkTo>
+				</button>
+				<p>
+						Code: {{this.model.game.code}}
+				</p>
+				<p>
+						Status: {{this.model.game.statusLetter}}
+				</p>
+				<p>
+						Players: {{this.model.game.total_users}}
+				</p>
+				<p>
+						Winner: 
+						{{#if this.model.game.winner_id}}
+								<p>
+										{{this.model.game.winner_name}}
+								</p>  
+						{{else}}
+								<p>
+										There´s no winner
+								</p>
+								{{#if (eq this.model.game.statusLetter  "COMPLETED" )}}
+										<p>
+												Tied
+										</p>
+								{{/if}}
+						{{/if}}
+				</p>
+				<button class="newInstance" disabled={{if (lt this.model.game.total_users 2) true}} {{action this.onClick this.model.game.id}}>
+						Begin!
+				</button>
+		</div>
+		<div class="row">
+				<Jugadores @plays={{this.model.plays}} @game={{this.model.game}} @handleSubmit={{this.onSubmit}} @winner={{this.model.game.winner_id}} @status={{this.model.game.statusLetter}}/>
+		</div>
+</div>
