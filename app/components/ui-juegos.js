@@ -10,13 +10,11 @@ export default class UiJuegosComponent extends Component {
   @tracked user_id = "3";
 
   @action onChange(index){
-  	this.user_id = index;
-  	console.log(index);
-   	this.user_global.set('user', index);
+    this.user_id = index;
+    this.user_global.set('user', index);
   }
   @action async onJoin(gameId){
-  	console.log(gameId);
-		await this.args.handleJoin(this.user_id, gameId);
-   	alert("Joined the game");
+    await this.args.handleJoin(this.user_id, gameId);
+    alert("Joined the game");
 	}
 }

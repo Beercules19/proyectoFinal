@@ -1,10 +1,10 @@
 {{#each @plays as |play|}}
-  <div class = {{if (eq this.args.winner play.user_id) "ganador"}}>
-  		<div class = clase>
+  <div class = {{if (eq this.args.winner play.user_id) "winner"}}>
+  		<div class = "class">
 		   	<img src = "https://cdn0.iconfinder.com/data/icons/avatar-profile/452/pikachu_pokemon_profile_avatar_people-512.png" class="spinning ok">
 		   	
-		   	<div  class = margin>
-			    	<p class = "textobold">User Id: {{play.user_id}}</p>
+		   	<div  class = "margin">
+			    	<p class = "boldText">User Id: {{play.user_id}}</p>
 			   		<select onChange={{action this.onChange value="target.value"}} >
 			    		<option value="" disabled selected hidden>Choose a value...</option>
 			  			<option value="1">Rock</option>
@@ -14,7 +14,7 @@
 			  			<option value="5">Spock</option>
 						</select>
 			 
-			    <button class = newGame {{action this.onSubmit play.user_id play.game_id play.id }} disabled={{if (not-eq this.args.status "STARTED") true}}>Submit!
+			    <button class = "newInstance" {{action this.onSubmit play.user_id play.game_id play.id }} disabled={{if (not-eq this.args.status "STARTED") true}}>Submit!
 			    </button>
 			    {{#if (eq this.args.winner play.user_id)}}
 			    	<p>Won</p>

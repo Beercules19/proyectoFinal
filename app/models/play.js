@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-const { Model, attr,  belongsTo , hasMany } = DS;
+const { Model, attr } = DS;
 
 export default class PlayModel extends Model {
   @attr('number') user_id;

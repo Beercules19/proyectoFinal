@@ -4,22 +4,8 @@ body {
     color: #fff;
     padding-left: 10%;
     padding-top: 50px;
-    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background: #FF4500;
     background-size: 400% 400%;
-    animation: Gradient 10s ease infinite;
-}
-
-
-@keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
 }
 
 h1,th, p, button {
