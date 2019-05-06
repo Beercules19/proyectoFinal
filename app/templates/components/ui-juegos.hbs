@@ -1,4 +1,4 @@
-{{log this.games}}
+{{! {{log this.games}} no jala el log}} 
 <p>Please select a user: </p>
 <select onChange={{action this.onChange value="target.value"}}>
   {{#each @users as |user|}}
@@ -6,29 +6,35 @@
   {{/each}}
 </select>
 <table>
-  <tr>
-    <th>Code</th>
-    <th>Status</th>
-    <th>Players</th>
-    <th>Winner</th>
-    <th>Join</th>
-    <th>Play</th>
-  </tr>
-  {{#each @games as |game|}}
+  <thead>
     <tr>
-      {{log game.statusLetter}}
-      <th>{{game.code}}</th>
-      <th>{{game.statusLetter}}</th>
-      <th>{{game.total_users}}</th>
-      <th>{{game.winner_name}}</th>
-      <th> 
-        <button id="play" disabled={{if (gte game.total_users 2 ) "true"}} {{action this.onJoin game.id}}>Join!
-        </button>
-      </th>
-      <th>
-        <LinkTo @route="app.actual-juego" @model={{game.id}}>Play!
-        </LinkTo>
-      </th>
+      <th>Code</th>
+      <th>Status</th>
+      <th>Players</th>
+      <th>Winner</th>
+      <th>Join</th>
+      <th>Play</th>
     </tr>
+  </thead>
+  {{#each @games as |game|}}
+    <tbody>
+      <tr>
+        {{! {{log game.statusLetter}} no jala el log}}
+        <th>{{game.code}}</th>
+        <th>{{game.statusLetter}}</th>
+        <th>{{game.total_users}}</th>
+        <th>{{game.winner_name}}</th>
+        <th> 
+          <button id="play" disabled={{if (gte game.total_users 2 ) "true"}} {{action this.onJoin game.id}}>
+            Join!
+          </button>
+        </th>
+        <th>
+          <LinkTo @route="app.actual-juego" @model={{game.id}}>
+            Play!
+          </LinkTo>
+        </th>
+      </tr>
+    </tbody>
   {{/each}}
 </table>
